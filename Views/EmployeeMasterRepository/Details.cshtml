@@ -1,0 +1,90 @@
+﻿@model WebApplication2.Models.EmployeeMaster
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>EmployeeMaster</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpFirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpFirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpMiddleName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpMiddleName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpLastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpLastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpEmailId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpEmailId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpBirthDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpBirthDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpGender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpGender)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeAddress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Salary)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmpStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmpStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DepartmentName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DepartmentName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DesignationName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DesignationName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a class="btn btn-info text-white" asp-action="Edit" asp-route-id="@Model.EmpId">Edit</a> |
+    <a asp-action="Index" class="btn btn-warning text-white">Back to List</a>
+</div>
