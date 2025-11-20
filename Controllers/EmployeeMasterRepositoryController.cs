@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication2.IRepository;
 using WebApplication2.Models;
 
@@ -17,12 +18,14 @@ namespace WebApplication2.Controllers
             _dsrepository = dsrepository;
         }
 
+        [Authorize]
         public IActionResult Index()
         {
             var employees = _repository.GetAllEmployee();
             return View(employees);
         }
 
+        [Authorize]
         public IActionResult Details(int id)
         {
             var employee = _repository.GetEmployeeById(id);
@@ -33,9 +36,9 @@ namespace WebApplication2.Controllers
             return View(employee);
         }
 
-
+        [Authorize]
         [HttpGet]
-
+        
         public IActionResult Create()
         {
             ViewBag.Departments = _drepository.GetAllDepartments(); // You need to implement this method
@@ -43,9 +46,10 @@ namespace WebApplication2.Controllers
             return View();
         }
 
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-
+        
         public IActionResult Create(EmployeeMaster employee)
         {
             ModelState.Remove(nameof(employee.EmpStatus));
@@ -55,11 +59,15 @@ namespace WebApplication2.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+            ViewBag.Departments = _drepository.GetAllDepartments();
+            ViewBag.Designations = _dsrepository.GetAllDesignation();
+
             return View(employee);
         }
 
+        [Authorize]
         [HttpGet]
-
+        
         public IActionResult Edit(int id)
         {
             ViewBag.Departments = _drepository.GetAllDepartments();
@@ -72,9 +80,12 @@ namespace WebApplication2.Controllers
             return View(employee);
         }
 
+
+
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
-
+       
         public IActionResult Edit(int id, EmployeeMaster employee)
         {
             if (id != employee.EmpId)
@@ -90,8 +101,9 @@ namespace WebApplication2.Controllers
             return View(employee);
         }
 
+        [Authorize]
         [HttpGet]
-
+        
         public IActionResult Delete(int id)
         {
             var employee = _repository.GetEmployeeById(id);
@@ -105,6 +117,7 @@ namespace WebApplication2.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        
         public IActionResult ConfirmedDelete(int id)
         {
                 _repository.DeleteEmployee(id);

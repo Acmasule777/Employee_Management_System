@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication2.Models;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication2.IRepository;
+using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
 {
@@ -13,13 +14,14 @@ namespace WebApplication2.Controllers
             _repository = repository;
         }
 
-
+        [Authorize]
         public IActionResult Index()
         {
             var departments = _repository.GetAllDepartments();
             return View(departments);
         }
 
+        [Authorize]
         public IActionResult Details(int id)
         {
             var department = _repository.GetDepartmentById(id);
@@ -31,14 +33,18 @@ namespace WebApplication2.Controllers
             return View(department);
         }
 
+        [Authorize]
         [HttpGet]
+        
         public IActionResult Create()
         {
             return View();
         }
 
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
+        
 
         public IActionResult Create(DepartmentMaster department)
         {
@@ -53,6 +59,8 @@ namespace WebApplication2.Controllers
             return View(department);
         }
 
+
+        [Authorize]
         public IActionResult Edit(int id)
         {
             var department = _repository.GetDepartmentById(id);
@@ -63,9 +71,10 @@ namespace WebApplication2.Controllers
             return View(department);
         }
 
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
-
+        
         public IActionResult Edit(int id, DepartmentMaster department)
         {
             if (id != department.DepartmentId)
@@ -82,6 +91,7 @@ namespace WebApplication2.Controllers
 
         }
 
+        [Authorize]
         public IActionResult Delete(int id)
         {
             var department = _repository.GetDepartmentById(id);
@@ -93,6 +103,7 @@ namespace WebApplication2.Controllers
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
 
+       
         public IActionResult DeleteConfirmed(int id)
         {
             _repository.DeleteDepartment(id);
