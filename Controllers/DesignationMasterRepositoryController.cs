@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication2.Models;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication2.IRepository;
+using WebApplication2.Models;
 
 namespace WebApplication2.Controllers
 {
@@ -13,13 +14,14 @@ namespace WebApplication2.Controllers
             _repository = repository;
         }
 
-
+        [Authorize]
         public IActionResult Index()
         {
             var designations = _repository.GetAllDesignation();
             return View(designations);
         }
 
+        [Authorize]
         public IActionResult Details(int id)
         {
             var designation = _repository.GetDesignationById(id);
@@ -30,16 +32,18 @@ namespace WebApplication2.Controllers
             return View(designation);
         }
 
+        [Authorize]
         [HttpGet]
+        
         public IActionResult Create()
         {
             return View();
         }
 
-
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
-
+        
         public IActionResult Create(DesignationMaster designation)
         {
 
@@ -55,7 +59,7 @@ namespace WebApplication2.Controllers
             return View(designation);
         }
 
-
+        [Authorize]
         public IActionResult Edit(int id)
         {
             var designation = _repository.GetDesignationById(id);
@@ -67,9 +71,10 @@ namespace WebApplication2.Controllers
             return View(designation);
         }
 
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-
+        
         public IActionResult Edit(int id, DesignationMaster designation)
         {
             if (id != designation.DesignationId)
@@ -86,7 +91,7 @@ namespace WebApplication2.Controllers
             return View(designation);
         }
 
-
+        [Authorize]
         public IActionResult Delete(int id)
         {
             var designation = _repository.GetDesignationById(id);
@@ -100,6 +105,7 @@ namespace WebApplication2.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+       
         public IActionResult DeleteConfirmed(int id)
         {
               _repository.DeleteDesignation(id);
