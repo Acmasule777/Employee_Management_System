@@ -1,9 +1,9 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
-using WebApplication2.IRepository;
-using WebApplication2.Models;
+using EmployeeManagementSystem.IRepository;
+using EmployeeManagementSystem.Models;
 
-namespace WebApplication2.Repository
+namespace EmployeeManagementSystem.Repository
 {
     public class EmployeeMasterRepository : IEmployeeMasterUSP
     {
@@ -92,6 +92,8 @@ namespace WebApplication2.Repository
                             EmployeeAddress = reader["EmployeeAddress"]?.ToString() ?? string.Empty,
                             Salary = (decimal)reader["Salary"],
                             EmpStatus = (bool)reader["EmpStatus"],
+                            DepartmentId = (int)reader["DepartmentId"],
+                            DesignationId = (int)reader["DesignationId"],
                             DepartmentName = reader["DepartmentName"]?.ToString() ?? string.Empty,
                             DesignationName = reader["DesignationName"]?.ToString() ?? string.Empty
                         };

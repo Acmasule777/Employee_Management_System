@@ -1,6 +1,6 @@
-﻿using WebApplication2.Models;
+﻿using EmployeeManagementSystem.Models;
 
-namespace WebApplication2.IRepository
+namespace EmployeeManagementSystem.IRepository
 {
     public interface IEmployeeMasterUSP
     {

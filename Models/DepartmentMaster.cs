@@ -1,7 +1,7 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication2.Models
+namespace EmployeeManagementSystem.Models
 {
     public class DepartmentMaster
     {

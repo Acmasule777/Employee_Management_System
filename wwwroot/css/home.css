@@ -34,3 +34,8 @@
     text-align: center;
     ; /* or white if your background is dark */
 }
+
+.buttons{
+   width: 100px;
+   font-size:15px;
+}

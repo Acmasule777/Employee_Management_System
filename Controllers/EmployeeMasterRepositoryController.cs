@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication2.IRepository;
-using WebApplication2.Models;
+using EmployeeManagementSystem.IRepository;
+using EmployeeManagementSystem.Models;
 
-namespace WebApplication2.Controllers
+namespace EmployeeManagementSystem.Controllers
 {
     public class EmployeeMasterRepositoryController : Controller
     {
@@ -70,18 +70,16 @@ namespace WebApplication2.Controllers
         
         public IActionResult Edit(int id)
         {
-            ViewBag.Departments = _drepository.GetAllDepartments();
-            ViewBag.Designations = _dsrepository.GetAllDesignation();
             var employee = _repository.GetEmployeeById(id);
             if (employee == null)
             {
                 return NotFound();
             }
+
+            ViewBag.Departments = _drepository.GetAllDepartments();
+            ViewBag.Designations = _dsrepository.GetAllDesignation();
             return View(employee);
         }
-
-
-
        
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -98,6 +96,8 @@ namespace WebApplication2.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+            //ViewBag.Departments = _drepository.GetAllDepartments();
+            //ViewBag.Designations = _dsrepository.GetAllDesignation();
             return View(employee);
         }
 
