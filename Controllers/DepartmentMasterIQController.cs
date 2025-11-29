@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication2.IRepository;
-using WebApplication2.Models;
+using EmployeeManagementSystem.IRepository;
+using EmployeeManagementSystem.Models;
 
-namespace WebApplication2.Controllers
+namespace EmployeeManagementSystem.Controllers
 {
     public class DepartmentMasterIQController : Controller
     {

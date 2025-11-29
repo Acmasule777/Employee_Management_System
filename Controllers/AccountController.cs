@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication2.Models;
-using WebApplication2.ViewModels;
+using EmployeeManagementSystem.Models;
+using EmployeeManagementSystem.ViewModels;
 
-namespace WebApplication2.Controllers
+namespace EmployeeManagementSystem.Controllers
 {
     public class AccountController : Controller
     {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
-using WebApplication2.IRepository;
-using WebApplication2.Models;
+using EmployeeManagementSystem.IRepository;
+using EmployeeManagementSystem.Models;
 
-namespace WebApplication2.Repository
+namespace EmployeeManagementSystem.Repository
 {
     public class DesignationMasterRepository_IQ : IDesignationMasterRepository_IQ
     {

@@ -1,8 +1,8 @@
-﻿using WebApplication2.Models;
+﻿using EmployeeManagementSystem.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace WebApplication2.DBContext
+namespace EmployeeManagementSystem.DBContext
 {
     public class ApplicationDbContext:IdentityDbContext<ApplicationUser>
     {

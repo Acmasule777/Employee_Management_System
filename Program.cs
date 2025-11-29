@@ -1,10 +1,10 @@
-using WebApplication2.IRepository;
-using WebApplication2.Repository;
+using EmployeeManagementSystem.IRepository;
+using EmployeeManagementSystem.Repository;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using WebApplication2.DBContext;
-using WebApplication2.Models;
+using EmployeeManagementSystem.DBContext;
+using EmployeeManagementSystem.Models;
 
 
 
